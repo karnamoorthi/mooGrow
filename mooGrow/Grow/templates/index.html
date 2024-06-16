@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>mooGrow</title>
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+        <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+
+        <!-- CSS -->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body id="page-top">
+        <!--Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-white" id="mainNav">
+            <div class="container">
+                <a href="#page-top" class="top"><h1>moo<sup><i class="fa fa-wifi"></i></sup><b>Grow</b></h1><img  src="{% static 'assets/img/logos/qrcode.png' %}" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fa fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto ">
+                        <li class="nav-item"><a class="nav-link" href="">Language</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">Partner & Order</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#product">Product</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        
+                        <li>Customer Care<br>No.8050039393</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <form method="post" action="/login">
+            {% csrf_token %}
+              <div class="modal-body">
+                <h5 class="modal-title" id="head" id="exampleModalLabel">Partner with us</h5>
+                <div class="row">
+                    <div class="col-sm-5" id="login" style="background-color: #fff;">
+                        <input type="text" name="name" placeholder="Full Name">
+                        <input type="email" name="mail" placeholder="Email">
+                        <input type="text" name="company" placeholder="Company">
+                    </div>
+                    <p class="col-sm-1"></p>
+                    <div class="col-sm-6" id="login" style="background-color: #fff;">
+                        <input type="text" name="web" placeholder="Company Website">
+                        <input type="tel" name="phone" placeholder="Contact Number">
+                        <input type="text" name="msg" placeholder="Comments">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalbulk">Bulk Order</button>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- bulk Modal -->
+        <div class="modal fade" id="exampleModalbulk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            <form method="post" action="/order">
+                {% csrf_token %}
+              <div class="modal-body">
+                <h5 class="modal-title" id="head" style="width: 140px;" id="exampleModalLabel">Bulk Order</h5>
+                <div class="row">
+                    <div class="col-sm-6" id="login" style="background-color: #fff;">
+                        <input type="text" name="name" placeholder="Full Name">
+                        <input type="tel" name="phone" placeholder="Contact Number">
+                        <input type="email" name="mail" placeholder="Email">
+                        
+                    </div>
+                    <div class="col-sm-6" id="login" style="background-color: #fff;">
+                        <input type="text" name="company" placeholder="Company">
+                        <textarea class="form-control" style="height: 180px; color:green;" id="message" placeholder="Bulk Requirement" name="msg"></textarea>
+                        <input type="submit" class="btn btn-primary" id="sub" value="Submit">
+                    </div>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Masthead-->
+        <header class="masthead" style="background-image: url({% static 'assets/bg.jpg' %});">
+            <div class="container">
+                <h2 style="background-color: lightgreen;">{{ log }}{{ der }}{{ con }}</h2>
+                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#start">Tell Me More</a>
+            </div>
+        </header>
+        <!-- Services-->
+        <section class="page-section" id="start">
+            <div class="container">
+                    <h2 class="section-heading" style="color: green;">Who is mooGrow</h2>
+                <div class="row">
+                    <div class="col-md-10">
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit.</p>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit.</p>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit.</p>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.Lorem ipsum dolor sit amet, consectetur 
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product-->
+        <section class="page-section" style="background-color: green;" id="product">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading" style="color: white;">Product We Offer</h2>
+                </div><br><br>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Product item 1-->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{% static 'assets/img/farming.jpg' %}" width="350" height="300">
+                                    <h3>Agri Input</h3>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Agri Input</h3>
+                                    <ul>
+                                        <li>Crop protection</li>
+                                        <li>Seeds</li>
+                                        <li>Crop Nutrition</li>
+                                        <li>Farm Supplement</li>
+                                        <li>Farm Accessories</li>
+                                        <li>Others</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Product item 2-->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{% static 'assets/img/dairy.jpg' %}" width="350" height="300">
+                                    <h3>Dairy Input</h3>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Dairy Input</h3>
+                                    <ul>
+                                        <li>Crop protection</li>
+                                        <li>Seeds</li>
+                                        <li>Crop Nutrition</li>
+                                        <li>Farm Supplement</li>
+                                        <li>Farm Accessories</li>
+                                        <li>Others</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Product item 3-->
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="{% static 'assets/img/fm.jpg' %}" width="350" height="300">
+                                    <h3>Dairy FMCG</h3>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h3>Dairy FMCG</h3>
+                                    <ul>
+                                        <li>Crop protection</li>
+                                        <li>Seeds</li>
+                                        <li>Others</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div style="color: green;">
+                    <h2 class="section-heading">About Us</h2>
+                    <p class="section-subheading text-muted">What we do?</p>
+                </div>
+                <div>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br/>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><br/>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Contact-->
+        <section class="page-section" style="background-color: green;">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading" style="color: white;">Our Partner</h2>
+                </div><br>
+                <div class="row">
+                    <p class="col-sm-1"></p>
+                    <div class="img" style="background-color: white;">
+                        <img src="{% static 'assets/img/logos/agro.png' %}">
+                        <img src="{% static 'assets/img/logos/bal.png' %}">
+                        <img src="{% static 'assets/img/logos/bara.png' %}">
+                        <img src="{% static 'assets/img/logos/coro.png' %}">
+                        <img src="{% static 'assets/img/logos/heri.jpg' %}">
+                        <img src="{% static 'assets/img/logos/id.jpg' %}">
+                        <img src="{% static 'assets/img/logos/mipa.jpg' %}">
+                        <img src="{% static 'assets/img/logos/moo.jpg' %}">
+                        <img src="{% static 'assets/img/logos/sis.jpg' %}">
+                        <img src="{% static 'assets/img/logos/syn.png' %}">
+                        <img src="{% static 'assets/img/logos/tro.png' %}">
+                        <img src="{% static 'assets/img/logos/vansun.png' %}">
+                        <img src="{% static 'assets/img/logos/vir.png' %}">
+                    </div>
+                    <p class="col-sm-1"></p>
+            </div>
+        </section>
+        <section class="page-section" style="background-color: green;" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4 style="color: white;">About Us</h4><br>
+                        <h4 style="color: white;">Contact Us</h4><br>
+                        <h4 style="color: white;">Partner with Us</h4><br>
+                        <h4 class="mb-4" style="color: white;">Customer Care No.8050039393</h4><br>
+                        <div class="text-center mt-5"><h5 style="color: white;">Stay Connected</h5></div>
+                        <div class="mt-3">
+                            <!-- Facebook -->
+                            <a href="#"><i class="fa fa-facebook-f fa-2x" style="color: #3b5998;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Twitter -->
+                            <a href="#"><i class="fa fa-twitter fa-2x" style="color: #55acee;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Google -->
+                            <a href="#"><i class="fa fa-google fa-2x" style="color: #dd4b39;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Instagram -->
+                            <a href="#"><i class="fa fa-instagram fa-2x" style="color: #ac2bac;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Linkedin -->
+                            <a href="#"><i class="fa fa-linkedin fa-2x" style="color: #0082ca;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Youtube -->
+                            <a href="#"><i class="fa fa-youtube fa-2x" style="color: #ed302f;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                            <!-- Whatsapp -->
+                            <a href="#"><i class="fa fa-whatsapp fa-2x" style="color: #25d366;background-color:white;padding:5px 10px 5px 10px;border-radius: 5px;margin:0 10px 10px 10px;"></i></a>
+                        </div>
+                        <div>
+                            <div class="top" style="background-color:white;position:relative;top:50px;height:55px;width:250px;border-radius:5px;">
+                                <h2 style="color:black;position:relative;left:55px;">moo<sup><i class="fa fa-wifi"></i></sup><b>Grow</b></h2>
+                                <img  src="{% static 'assets/img/logos/qrcode.png' %}" style="position:relative;bottom:45px;left:5px" width="50px" height="50px"  alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="text-center p-3" style="background-color: white;color:green;">Contact Us</h2><br>
+                        <form method="post" action="/msg">
+                            {% csrf_token %}
+                        <div class="form-group ">
+                            <input class="form-control" name="name" style="color:green;" id="name" type="text" placeholder="Enter your name" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input class="form-control" name="phone" style="color:green;" id="phone" type="tel" placeholder="Enter your phone number" data-sb-validations="required" />
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                        </div><br>
+                        <div class="form-group form-group-textarea">
+                            <textarea class="form-control" style="height: 250px; color:green;" id="message" placeholder="Message" data-sb-validations="required" name="ms"></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div><br>
+                        <div class="text-center">
+                            <input class="" style="width:150px;height:50px;color:green;font-size: 20px;border-radius:20px;border:none;" type="submit" value="Submit">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container p-3">
+                <div class="row text-center">
+                    <div>&copy; 2023 Copyright on mooGrow</div>
+                </div>
+            </div>
+        </footer>
+
+
+        
+
+
+
+
+        
+        <!--JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
